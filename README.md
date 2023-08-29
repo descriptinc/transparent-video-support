@@ -1,6 +1,9 @@
 # Testing the playback support of videos with alpha
 
-# Testing Locally
+## Hosted Demo
+ - https://descriptinc.github.io/transparent-video-support/
+
+## Testing Locally
 
 1.  Clone
 2.  change to repo folder
