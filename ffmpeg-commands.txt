@@ -53,3 +53,11 @@ ffmpeg -i LightLeak.mov \
 -map "[alphaout]" -c:v:1 libx264 -b:v:1 1M \
 -movflags +faststart LightLeak.mp4
 
+
+# Support for segmented videos
+ffmpeg -i LightLeak.mov \
+-filter_complex "[0:v]split=2[color][alpha]; \
+[alpha]format=yuva420p,extractplanes=a[alphaout]" \
+-map "[color]" -c:v:0 h264 \
+-map "[alphaout]" -c:v:1 h264 \
+-f segment -segment_list playlist.m3u8 -segment_time 1 output%03d.ts
