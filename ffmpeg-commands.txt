@@ -53,3 +53,6 @@ ffmpeg -i LightLeak.mov \
 -map "[alphaout]" -c:v:1 libx264 -b:v:1 1M \
 -movflags +faststart LightLeak.mp4
 
+
+
+rm -rf alpha-frames; mkdir alpha-frames; ffmpeg -i /Users/francoislaberge/Downloads/playlist.m3u8 -map 0:1 -an alpha-frames/frame%04d.png
